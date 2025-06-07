@@ -120,6 +120,13 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+-- Prevent visual-mode change from affecting system clipboard
+vim.keymap.set('x', 'c', '"_c', { noremap = true, silent = true })
+vim.keymap.set('x', 'C', '"_C', { noremap = true, silent = true })
+
+-- Also disable change for operator-pending (not common, but safe)
+vim.keymap.set('o', 'c', '"_c', { noremap = true, silent = true })
+
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -172,6 +179,12 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+--- How to decrease the width of the numbers column here ? it's taking too much space
+--- https://www.reddit.com/r/neovim/comments/1k73e6y/how_to_decrease_the_width_of_the_numbers_column/?%24deep_link=true&correlation_id=5350db66-7dbd-4050-9de7-dd2c912ebb77&post_fullname=t3_1k73e6y&post_index=0&ref=email_digest&ref_campaign=email_digest&ref_source=email&utm_content=post_title&%243p=e_as&_branch_match_id=1366785035752850644&utm_medium=Email%20Amazon%20SES&_branch_referrer=H4sIAAAAAAAAA22Q3WrDMAyFnya9S5vGTUIHpQzGXmAPYJxYSUT9h6ws282efUq77Wpgw9F3fCzZM3PKT4cDgbXIe5PS3mG4HVS6FvVJpQtok3ciI%2BGEwTi9kLvMW6pQz0X9Kmtd1%2F1PfoheAMkOEN9xKwR5CJxFHm%2BdgvZT1BxXzVFbGAhMBs0z6BUtzzqO9yIsvgfKeohu8WHro6RVU58sQNLbiIV6YVqgqNshEoEzjDFotMIb1VS2b9uys70tT1VTlWcLXWltPZyPNfR910kuxcx6XJwLxsN2ndJ%2FEz5MDBY%2BxKkEEIyiwBt02uIEmR9QD8Yng1P4381xoQF%2BPYELe3lVYPkTofc2jOxg9yXHgQjDpHuKawa6vJnREH4DHluqqKQBAAA%3D
+vim.opt.numberwidth = 3
+vim.opt.signcolumn = 'yes:1'
+vim.opt.statuscolumn = '%l%s'
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

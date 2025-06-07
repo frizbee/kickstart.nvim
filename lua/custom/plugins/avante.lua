@@ -9,10 +9,17 @@ return {
     provider = 'claude',
     claude = {
       endpoint = 'https://api.anthropic.com',
-      model = 'claude-3-5-haiku-20241022', -- or another Claude model: claude-3-7-sonnet-20250219; claude-3-opus-20240229;
+      model = 'claude-sonnet-4-20250514', -- or another Claude model: claude-3-5-haiku-20241022 claude-sonnet-4-20250514; claude-opus-4-20240514;
       api_key_name = 'ANTHROPIC_API_KEY', -- environment variable name
-      temperature = 0.5,
-      max_tokens = 4096,
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 4096, -- 2048, 4096, 8192, 16384
+      disable_tools = true, -- disable tools for now
+    },
+    behaviour = {
+      auto_suggestions = false,
+      minimize_diff = false,
+      enable_claude_text_editor_tool_mode = true,
     },
     -- provider = 'openai',
     -- openai = {
