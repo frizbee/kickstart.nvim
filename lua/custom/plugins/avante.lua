@@ -12,7 +12,7 @@ return {
         endpoint = 'https://api.anthropic.com',
         model = 'claude-sonnet-4-20250514', -- or another Claude model: claude-3-5-haiku-20241022 claude-sonnet-4-20250514; claude-opus-4-20240514;
         api_key_name = 'ANTHROPIC_API_KEY', -- environment variable name
-        timeout = 30000, -- Timeout in milliseconds
+        timeout = 70000, -- Timeout in milliseconds
         disable_tools = true, -- disable tools for now
         extra_request_body = {
           temperature = 0,
