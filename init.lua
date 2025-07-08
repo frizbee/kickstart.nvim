@@ -1012,7 +1012,6 @@ require('lazy').setup({
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns',
   -- require 'custom.plugins.lualine',
-  -- require 'custom.plugins.nerd-commenter',
   -- require 'custom.plugins.copilot',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
